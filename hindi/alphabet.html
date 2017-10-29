@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Hindi Alphabet</title>
+    <meta charset="UTF-8">
+    <script src="words.js"></script>
+    <script>
+
+      function loadAudio() {
+        // list<(string, string, string)> where tuple is
+        // transliteration, hindi, translation.
+        WORDS.forEach((tup) => {
+          let audioDiv = document.getElementById('audio');
+          let audio = document.createElement('audio');
+          audio.id = tup[0];
+          let source = document.createElement('source');
+          source.src = AUDIO_MAP[tup[0]];
+          audio.appendChild(source);
+          audioDiv.appendChild(audio);
+        });
+
+        /* Creates elements like the following:
+          <audio id="anaar">
+            <source src="anaar.mp3" />
+          </audio>
+         */
+      }
+
+      function loadTable() {
+        CHARACTERS.forEach((tup) => {
+          let characterTable = document.getElementById('characters');
+          let tr = document.createElement('tr');
+          let charTd = document.createElement('td');
+          charTd.innerText = tup[1];
+          tr.appendChild(charTd);
+
+          const charWords = CHARACTERS_TO_WORDS[tup[0]];
+          let word1Td = document.createElement('td');
+          let word1Span = document.createElement('span');
+          word1Span.innerText = WORD_MAP[charWords[0]][0];
+          word1Span.onclick = () => {
+            document.getElementById(charWords[0]).play();
+          };
+          word1Td.appendChild(word1Span);
+          tr.appendChild(word1Td);
+
+          let word2Td = document.createElement('td');
+          if (charWords.length >= 2) {
+            let word2Span = document.createElement('span');
+            word2Span.innerText = WORD_MAP[charWords[1]][0];
+            word2Span.onclick = () => {
+              document.getElementById(charWords[1]).play();
+            };
+            word2Td.appendChild(word2Span);
+          }
+          tr.appendChild(word2Td);
+          characterTable.appendChild(tr);
+        });
+
+        /* Creates elements like the following:
+           <tr>
+             <td>अ</td>
+             <td><span onclick="document.getElementById('anaar').play()">अनार</span></td>
+             <td><span onclick="document.getElementById('ajagar').play()">अजगर</span></td>
+           </tr>
+         */
+      }
+
+      function loadPage() {
+        loadAudio();
+        loadTable();
+      }
+
+    </script>
+  </head>
+  <body onload="loadPage()">
+    <table id="characters">
+      <tr>
+        <th>Character</th>
+        <th>Word 1</th>
+        <th>Word 2</th>
+      </tr>
+    </table>
+    <div id="audio" style="display: hide"></div>
+
+  </body>
+</html>
+
