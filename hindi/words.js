@@ -5,19 +5,25 @@
 const AUDIO_FILE_PATH = './audio/X.mp3'.split('X');
 const WORDS = [
   // transliteration, hindi, translation
+  ['achchha', 'अच्छा', 'good'],
   ['anaar', 'अनार', 'pomegranate'],
   ['ajagar', 'अजगर', 'cobra'],
   ['aam', 'आम', 'mango'],
   ['aag', 'आग', 'fire'],
   ['imalee', 'इमली', 'tamarind'],
-  ['imartee', 'इमरती', ''],
-  ['eekh', 'ईख', ''],
-  ['eent', 'ईंट', ''],
+  ['imartee', 'इमरती', 'orange, curly, fried candy'],
+  ['eekh', 'ईख', 'reed'],
+  ['eent', 'ईंट', 'brick'],
+  ['us', 'उस', 'that'],
   ['ulloo', 'उल्लू', 'owl'],
-  ['upahaar', 'उपहार', ''],
-  ['oon', 'ऊन', ''],
-  ['oont', 'ऊंट', ''],
-  ['rishi', 'ऋषि', ''],
+  ['upahaar', 'उपहार', 'present'],
+  ['oon', 'ऊन', 'wool'],
+  ['oont', 'ऊंट', 'camel'],
+  ['ek', 'एक', 'one'],
+  ['aisa', 'ऐसा', 'like this'],
+  ['offo', 'ओफ्फो', 'argh'],
+  ['aurat', 'औरत', 'woman'],
+  ['rishi', 'ऋषि', 'sage'],
 ];
 const AUDIO_LIST = WORDS.map((tup) => {
   const tokens = [AUDIO_FILE_PATH[0], tup[0], AUDIO_FILE_PATH[1]];
@@ -39,14 +45,22 @@ const CHARACTERS = [
   ['ee', 'ई'],
   ['u', 'उ'],
   ['oo', 'ऊ'],
+  ['e', 'ए'],
+  ['ai', 'ऐ'],
+  ['o', 'ओ'],
+  ['au', 'औ'],
   ['ri', 'ऋ'],
 ];
 const CHARACTERS_TO_WORDS = {
-  'a': ['anaar', 'ajagar'],
+  'a': ['achchha', 'anaar', 'ajagar'],
   'aa': ['aam', 'aag'],
   'i': ['imalee', 'imartee'],
   'ee': ['eekh', 'eent'],
-  'u': ['ulloo', 'upahaar'],
+  'u': ['us', 'ulloo', 'upahaar'],
   'oo': ['oon', 'oont'],
+  'e': ['ek'],
+  'ai': ['aisa'],
+  'o': ['offo'],
+  'au': ['aurat'],
   'ri': ['rishi'],
 };

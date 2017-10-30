@@ -53,6 +53,18 @@
             word2Td.appendChild(word2Span);
           }
           tr.appendChild(word2Td);
+
+          let word3Td = document.createElement('td');
+          if (charWords.length >= 3) {
+            let word3Span = document.createElement('span');
+            word3Span.innerText = WORD_MAP[charWords[2]][0];
+            word3Span.onclick = () => {
+              document.getElementById(charWords[2]).play();
+            };
+            word3Td.appendChild(word3Span);
+          }
+          tr.appendChild(word3Td);
+
           characterTable.appendChild(tr);
         });
 
@@ -61,6 +73,7 @@
              <td>अ</td>
              <td><span onclick="document.getElementById('anaar').play()">अनार</span></td>
              <td><span onclick="document.getElementById('ajagar').play()">अजगर</span></td>
+             <td></td>
            </tr>
          */
       }
@@ -78,6 +91,7 @@
         <th>Character</th>
         <th>Word 1</th>
         <th>Word 2</th>
+        <th>Word 3</th>
       </tr>
     </table>
     <div id="audio" style="display: hide"></div>
