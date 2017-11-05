@@ -27,6 +27,10 @@
 
       function loadTable() {
         CHARACTERS.forEach((tup) => {
+          if (!(tup[0] in CHARACTERS_TO_WORDS)) {
+            console.log(tup[0] + '(' + tup[1] + ') was not found in CHARACTERS_TO_WORDS');
+            return;
+          }
           let characterTable = document.getElementById('characters');
           let tr = document.createElement('tr');
           let charTd = document.createElement('td');
@@ -36,6 +40,14 @@
           const charWords = CHARACTERS_TO_WORDS[tup[0]];
           let word1Td = document.createElement('td');
           let word1Span = document.createElement('span');
+          if (charWords.length === 0) {
+            console.log('There were no words found for ' + tup[0] + ' (' + tup[1] + ')');
+            return;
+          }
+          if (!(charWords[0] in WORD_MAP)) {
+            console.log(charWords[0] + ' was not found in WORD_MAP');
+            return;
+          }
           word1Span.innerText = WORD_MAP[charWords[0]][0];
           word1Span.onclick = () => {
             document.getElementById(charWords[0]).play();
