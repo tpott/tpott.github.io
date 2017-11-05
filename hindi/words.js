@@ -8,6 +8,7 @@ const WORDS = [
   ['achchha', 'अच्छा', 'good'],
   ['anaar', 'अनार', 'pomegranate'],
   ['ajagar', 'अजगर', 'cobra'],
+  ['aap', 'आप', 'you, respectful'],
   ['aam', 'आम', 'mango'],
   ['aag', 'आग', 'fire'],
   ['imalee', 'इमली', 'tamarind'],
@@ -24,6 +25,10 @@ const WORDS = [
   ['offo', 'ओफ्फो', 'argh'],
   ['aurat', 'औरत', 'woman'],
   ['rishi', 'ऋषि', 'sage'],
+  ['kaha', 'कहा', 'where'],
+  ['kharagosh', 'खरगोश', 'rabbit'],
+  ['gamala', 'गमला', 'pot'],
+  ['ghar', 'घर', 'home'],
 ];
 const AUDIO_LIST = WORDS.map((tup) => {
   const tokens = [AUDIO_FILE_PATH[0], tup[0], AUDIO_FILE_PATH[1]];
@@ -50,10 +55,14 @@ const CHARACTERS = [
   ['o', 'ओ'],
   ['au', 'औ'],
   ['ri', 'ऋ'],
+  ['ka', 'क'],
+  ['kha', 'ख'],
+  ['ga', 'ग'],
+  ['gha', 'घ'],
 ];
 const CHARACTERS_TO_WORDS = {
   'a': ['achchha', 'anaar', 'ajagar'],
-  'aa': ['aam', 'aag'],
+  'aa': ['aap', 'aam', 'aag'],
   'i': ['imalee', 'imartee'],
   'ee': ['eekh', 'eent'],
   'u': ['us', 'ulloo', 'upahaar'],
@@ -63,4 +72,8 @@ const CHARACTERS_TO_WORDS = {
   'o': ['offo'],
   'au': ['aurat'],
   'ri': ['rishi'],
+  'ka': ['kaha'],
+  'kha': ['kharagosh'],
+  'ga': ['gamala'],
+  'gha': ['ghar'],
 };
